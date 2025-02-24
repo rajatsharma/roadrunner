@@ -23,6 +23,8 @@ func processFile(srcPath, destPath string) error {
 		}
 	}(src)
 
+	fmt.Println("Processing file:", destPath)
+
 	dest, err := os.Create(destPath)
 	if err != nil {
 		return err
@@ -34,7 +36,7 @@ func processFile(srcPath, destPath string) error {
 		}
 	}(src)
 
-	err = parser.ConvertToJS(src, dest)
+	err = parser.ConvertToTS(src, dest)
 	if err != nil {
 		return err
 	}
@@ -61,10 +63,10 @@ func processDirectory(srcDir, destDir string) error {
 			}
 		}
 
-		if strings.HasSuffix(info.Name(), ".ts") {
+		if strings.HasSuffix(info.Name(), ".js") {
 			fmt.Println("Processing file:", path)
 			relPath, _ := filepath.Rel(srcDir, path)
-			destPath := filepath.Join(destDir, strings.TrimSuffix(relPath, ".ts")+".js")
+			destPath := filepath.Join(destDir, strings.TrimSuffix(relPath, ".js")+".ts")
 			return processFile(path, destPath)
 		}
 
