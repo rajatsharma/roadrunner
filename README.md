@@ -1,20 +1,18 @@
 <h1 align="center">Roadrunner 🦚</h1>
-<h5 align="center">RSR5 Scheme Compiler</h5>
+<h5 align="center">Experimental, naive, fast Typescript type omitter</h5>
 
-### 🧰 Prerequisites
+### 🧰 Installation
 
-- `stack`
-- `cabal`
-- `ghc 8.8.6`
+- Get the binary using go install
 
-### 🚀 Get Started
-
-- Install dependencies via `stack`.
-
-```sh
-$ stack build
+```shell
+go install github.com/rajatsharma/roadrunner
 ```
 
----
+- Run this command to omit types from typescript files in a dir and convert them all to JS
+
+```shell
+roadrunner src dest
+```
 
 Copyright © 2020 [Rajat Sharma](https://github.com/rajatsharma).<br />
